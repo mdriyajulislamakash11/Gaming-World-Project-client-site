@@ -16,24 +16,21 @@ const Banner = () => {
   const banners = [
     {
       image: img1,
-      title:
-        "Into a world where secrets guide your blade, and honor defines your path.",
+      title: "Into a world where secrets guide your blade, and honor defines your path.",
       subtitle:
-        " Sit, quas soluta possimus aliquid nam nemo, eaque cupiditate quibusdam atque ratione eum tempore sed quo hic exercitationem delectus.",
+        "Sit, quas soluta possimus aliquid nam nemo, eaque cupiditate quibusdam atque ratione eum tempore sed quo hic exercitationem delectus.",
       buttonText: "Explore More",
     },
     {
       image: img2,
-      title:
-        "Perspiciatis ullam quibusdam minima totam, repellendus ipsa unde!",
+      title: "Perspiciatis ullam quibusdam minima totam, repellendus ipsa unde!",
       subtitle:
         "Consectetur adipisicing elit. A at illum dignissimos, quas soluta possimus aliquid nam nemo, eaque cupiditate quibusdam atque ratione eum tempore sed quo hic exercitationem delectus.",
       buttonText: "Explore More",
     },
     {
       image: img3,
-      title:
-        "Terspiciatis allow well ullam quibusdam  totam, repellendus ipsa unde!",
+      title: "Terspiciatis allow well ullam quibusdam totam, repellendus ipsa unde!",
       subtitle:
         "Horem dignissimos, quas soluta possimus aliquid nam nemo, eaque cupiditate quibusdam atque ratione eum tempore sed quo hic exercitationem delectus.",
       buttonText: "Explore More",
@@ -67,18 +64,16 @@ const Banner = () => {
                 className="w-full h-full object-cover"
               />
               {/* Overlay content */}
-              <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-start px-6 md:px-20 text-white">
-                <h2 className="text-2xl md:text-5xl pl-16 font-extrabold line-clamp-3 mb-4 w-2/5 pr-7">
+              <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-start px-4 md:px-20 text-white">
+                <h2 className="text-base sm:text-xl md:text-4xl lg:text-5xl font-extrabold mb-4 max-w-full sm:max-w-xl">
                   {banner.title}
                 </h2>
-                <p className="text-lg md:text-2xl w-2/4 pl-16 pr-7 mb-6">
+                <p className="text-xs sm:text-sm md:text-lg lg:text-xl mb-4 max-w-full sm:max-w-xl">
                   {banner.subtitle}
                 </p>
-                <div className="pl-16">
-                  <button className="bg-blue-500 hover:bg-blue-700 px-5 py-2 rounded-md text-white font-semibold transition">
+                <button className="bg-blue-500 hover:bg-blue-700 px-4 py-2 rounded text-sm sm:text-base font-semibold transition">
                   {banner.buttonText}
                 </button>
-                </div>
               </div>
             </div>
           </SwiperSlide>
