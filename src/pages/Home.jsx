@@ -1,4 +1,4 @@
-import React from "react";
+
 import Banner from "../components/Banner";
 import { useLoaderData } from "react-router-dom";
 import GameCard from "./GameCard";
