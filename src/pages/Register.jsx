@@ -1,11 +1,27 @@
 import React, { useCallback, useContext, useState } from "react";
 import { AuthContext } from "../auth/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
 
 const Register = () => {
   const { register, googleLogin } = useContext(AuthContext);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
+
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then((result) => {
+        console.log("Google Login Success:", result.user);
+        navigate(from, { replace: true }); // আগের পেজে পাঠানো
+      })
+      .catch((error) => {
+        console.error("Google Login Error:", error.message);
+        setError(error.message); // চাইলে error দেখাতে পারো
+      });
+  };
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -22,6 +38,7 @@ const Register = () => {
     // logIn
     register(email, password)
       .then((result) => {
+        navigate(from, { replace: true });
         console.log(result.user);
         const loggedUser = result.user;
         console.log("Registered:", loggedUser);
@@ -105,7 +122,7 @@ const Register = () => {
           </Link>
         </p>
 
-        <button onClick={googleLogin} className="">
+        <button onClick={handleGoogleLogin} className="">
           google login
         </button>
       </div>

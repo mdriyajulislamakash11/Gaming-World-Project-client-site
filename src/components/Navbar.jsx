@@ -19,6 +19,7 @@ const Navbar = () => {
       <li>
         <NavLink to="/myReviews">My Reviews</NavLink>
       </li>
+
       <li>
         <NavLink to="/gameWatchList">Game WatchList</NavLink>
       </li>

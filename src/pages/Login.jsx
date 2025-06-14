@@ -1,11 +1,27 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../auth/AuthProvider";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { googleLogin, login } = useContext(AuthContext);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
+
+   const handleGoogleLogin = () => {
+    googleLogin()
+      .then((result) => {
+        console.log("Google Login Success:", result.user);
+        navigate(from, { replace: true }); // আগের পেজে পাঠানো
+      })
+      .catch((error) => {
+        console.error("Google Login Error:", error.message);
+        setError(error.message); // চাইলে error দেখাতে পারো
+      });
+  };
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -21,6 +37,7 @@ const Login = () => {
     login(email, password)
       .then((result) => {
         console.log(result.user);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         setError(error.message);
@@ -64,7 +81,7 @@ const Login = () => {
 
         <p>Please Register Now... <Link className="font-bold text-blue-400" to="/register">Go To Register</Link></p>
 
-        <button onClick={googleLogin} className="">
+        <button onClick={handleGoogleLogin} className="">
           google login
         </button>
       </div>
