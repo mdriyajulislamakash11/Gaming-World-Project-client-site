@@ -112,12 +112,17 @@ const Navbar = () => {
             </label>
 
             {/* User image icon */}
-            <div className="w-8 h-8 rounded-full border border-white bg-gray-200"></div>
+            <div className="w-8 h-8 rounded-full border border-white bg-gray-200">
+              <img className="rounded-full" src={user?.photoURL} alt="" />
+            </div>
 
             {/* Login Button */}
 
             {user ? (
-              <button onClick={logOut} className="btn border border-white bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full px-6 text-white hover:opacity-90">
+              <button
+                onClick={logOut}
+                className="btn border border-white bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full px-6 text-white hover:opacity-90"
+              >
                 LogOut
               </button>
             ) : (
