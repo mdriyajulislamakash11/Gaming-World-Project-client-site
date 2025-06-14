@@ -47,6 +47,8 @@ const Navbar = () => {
           <NavLink to="/" className=" normal-case text-xl">
             🎮 <span className="ml-2 font-bold text-left">Gaming<br />World!</span>
           </NavLink>
+
+      
         </div>
 
         {/* Navbar Center */}
