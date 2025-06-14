@@ -30,7 +30,7 @@ const UpdateReview = () => {
     console.log(updateInfo);
 
     // fetch
-    fetch(`http://localhost:5000/games/${_id}`, {
+    fetch(`https://games-iota-two.vercel.app/games/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

@@ -18,7 +18,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("http://localhost:5000/games"),
+        loader: () => fetch("https://games-iota-two.vercel.app/games"),
       },
       {
         path: "/addReviews",
@@ -35,12 +35,12 @@ const router = createBrowserRouter([
             <GameWatchList />
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/games"),
+        loader: () => fetch("https://games-iota-two.vercel.app/games"),
       },
       {
         path: "/allReviews",
         element: <AllReviews />,
-        loader: () => fetch("http://localhost:5000/games"),
+        loader: () => fetch("https://games-iota-two.vercel.app/games"),
       },
       {
         path: "/myReviews",
@@ -49,7 +49,7 @@ const router = createBrowserRouter([
             <MyReviews />,
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/games"),
+        loader: () => fetch("https://games-iota-two.vercel.app/games"),
       },
       {
         path: "/update/:id",
@@ -59,7 +59,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/games/${params.id}`),
+          fetch(`https://games-iota-two.vercel.app/games/${params.id}`),
       },
       {
         path: "/login",

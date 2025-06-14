@@ -20,7 +20,7 @@ const AddReviews = () => {
     const newInfo = { image, email, title, description, rating, publishDate, genre };
     console.log(newInfo);
 
-    fetch(`http://localhost:5000/games`, {
+    fetch(`https://games-iota-two.vercel.app/games`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
