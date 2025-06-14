@@ -8,51 +8,68 @@ import MyReviews from "../pages/MyReviews";
 import UpdateReview from "../pages/UpdateReview";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import PrivateRoute from "../auth/PrivateRoute";
 
 const router = createBrowserRouter([
-    {
+  {
+    path: "/",
+    element: <MainLayouts />,
+    children: [
+      {
         path: "/",
-        element: <MainLayouts />,
-        children: [
-            {
-                path: "/",
-                element: <Home />,
-                loader: () => fetch("http://localhost:5000/games")
-            },
-            {
-                path: "/addReviews",
-                element: <AddReviews />
-            },
-            {
-                path: "/gameWatchList",
-                element: <GameWatchList />
-            },
-            {
-                path: "/allReviews",
-                element: <AllReviews />,
-                loader: () => fetch("http://localhost:5000/games")
-            },
-            {
-                path: "/myReviews",
-                element: <MyReviews />,
-                loader: () => fetch("http://localhost:5000/games")
-            },
-            {
-                path: "/update/:id",
-                element: <UpdateReview />,
-                loader: ({params}) => fetch(`http://localhost:5000/games/${params.id}`)
-            },
-            {
-                path: "/login",
-                element: <Login />
-            },
-            {
-                path: "/register",
-                element: <Register />
-            },
-        ]
-    }
+        element: <Home />,
+        loader: () => fetch("http://localhost:5000/games"),
+      },
+      {
+        path: "/addReviews",
+        element: (
+          <PrivateRoute>
+            <AddReviews />,
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/gameWatchList",
+        element: (
+          <PrivateRoute>
+            <GameWatchList />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/allReviews",
+        element: <AllReviews />,
+        loader: () => fetch("http://localhost:5000/games"),
+      },
+      {
+        path: "/myReviews",
+        element: (
+          <PrivateRoute>
+            <MyReviews />,
+          </PrivateRoute>
+        ),
+        loader: () => fetch("http://localhost:5000/games"),
+      },
+      {
+        path: "/update/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateReview />,
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/games/${params.id}`),
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
+    ],
+  },
 ]);
-
 
 export default router;
