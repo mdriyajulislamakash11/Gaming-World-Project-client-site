@@ -6,6 +6,8 @@ import GameWatchList from "../pages/GameWatchList";
 import AllReviews from "../pages/AllReviews";
 import MyReviews from "../pages/MyReviews";
 import UpdateReview from "../pages/UpdateReview";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
 
 const router = createBrowserRouter([
     {
@@ -39,6 +41,14 @@ const router = createBrowserRouter([
                 path: "/update/:id",
                 element: <UpdateReview />,
                 loader: ({params}) => fetch(`http://localhost:5000/games/${params.id}`)
+            },
+            {
+                path: "/login",
+                element: <Login />
+            },
+            {
+                path: "/register",
+                element: <Register />
             },
         ]
     }
