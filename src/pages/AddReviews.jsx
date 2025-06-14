@@ -14,9 +14,21 @@ const AddReviews = () => {
     const genre = form.genre.value;
 
     const newInfo = { image, title, description, rating, publishDate, genre };
-    console.log(newInfo)
+    console.log(newInfo);
 
-    
+    fetch(`http://localhost:5000/games`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify(newInfo)
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+    });
+
+
   };
 
   return (
