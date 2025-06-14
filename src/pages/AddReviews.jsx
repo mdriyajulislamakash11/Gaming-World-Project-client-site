@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../auth/AuthProvider";
 
 const AddReviews = () => {
+  const { user } = useContext(AuthContext);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -12,23 +15,22 @@ const AddReviews = () => {
     const rating = form.rating.value;
     const publishDate = form.publishDate.value;
     const genre = form.genre.value;
+    const email = user
 
-    const newInfo = { image, title, description, rating, publishDate, genre };
+    const newInfo = { image, email, title, description, rating, publishDate, genre };
     console.log(newInfo);
 
     fetch(`http://localhost:5000/games`, {
       method: "POST",
       headers: {
-        "content-type": "application/json"
+        "content-type": "application/json",
       },
-      body: JSON.stringify(newInfo)
+      body: JSON.stringify(newInfo),
     })
-    .then(res => res.json())
-    .then(data => {
-      console.log(data)
-    });
-
-
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
   };
 
   return (
