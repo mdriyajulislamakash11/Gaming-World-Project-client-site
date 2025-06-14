@@ -17,7 +17,7 @@ const GameWatchList = () => {
               <th>Game Title</th>
               <th>Review DesCription</th>
               <th>Rating</th>
-              <th>Action</th>
+              <th>Added By</th>
             </tr>
           </thead>
           <tbody>
