@@ -25,7 +25,7 @@ const Home = () => {
         {/* dynamic card */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-16">
             {
-              loadedData.slice(0, 8).map((data) => <GameCard key={data._id} data={data} />)
+              loadedData.slice(0, 8)?.map((data) => <GameCard key={data._id} data={data} />)
             }
         </div>
         
